@@ -1,0 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public interface IAttack
+{
+    public abstract void Attack();
+    public abstract IEnumerator AttackDelay(float delay);
+}
