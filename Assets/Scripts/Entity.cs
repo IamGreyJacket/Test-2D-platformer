@@ -14,5 +14,14 @@ public class Entity : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log($"{gameObject.name} took {damage} damage.");
 #endif
+        if (_health <= 0) Die();
+    }
+
+    public virtual void Die()
+    {
+#if UNITY_EDITOR
+        Debug.Log($"{gameObject.name} died!");
+#endif
+        Destroy(this.gameObject);
     }
 }

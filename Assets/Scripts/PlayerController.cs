@@ -12,7 +12,6 @@ public class PlayerController : EntityController
     public event Action OnAltAttackEvent;
     public event Action OnJumpEvent;
 
-    public float Movement { get; private set; }
 
     private void Awake()
     {
@@ -20,8 +19,7 @@ public class PlayerController : EntityController
         //"Подписываемся" на ивенты UserControls
         _controls.PlayerOnFoot.Attack.performed += OnAttack;
         _controls.PlayerOnFoot.AltAttack.performed += OnAltAttack;
-        _controls.PlayerOnFoot.Jump.performed += OnJump;
-        _controls.PlayerOnFoot.Movement.performed += OnMovement;
+        _controls.PlayerOnFoot.Jump.started += OnJump;
     }
 
     private void OnAltAttack(InputAction.CallbackContext obj)
@@ -29,7 +27,7 @@ public class PlayerController : EntityController
         OnAltAttackEvent?.Invoke();
     }
 
-    private void OnMovement(InputAction.CallbackContext obj)
+    private void Update()
     {
         Movement = _controls.PlayerOnFoot.Movement.ReadValue<float>();
     }
@@ -61,8 +59,7 @@ public class PlayerController : EntityController
         //"отписываемся" от ивентов в UserControls
         _controls.PlayerOnFoot.Attack.performed -= OnAttack;
         _controls.PlayerOnFoot.AltAttack.performed -= OnAltAttack;
-        _controls.PlayerOnFoot.Jump.performed -= OnJump;
-        _controls.PlayerOnFoot.Movement.performed -= OnMovement;
+        _controls.PlayerOnFoot.Jump.started -= OnJump;
         //уничтожаем UserControls
         _controls.Dispose();
     }

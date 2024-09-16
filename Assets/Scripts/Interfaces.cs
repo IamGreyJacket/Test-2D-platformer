@@ -5,5 +5,6 @@ using UnityEngine;
 public interface IAttack
 {
     public abstract void Attack();
-    public abstract IEnumerator AttackDelay(float delay);
+    public abstract void AltAttack();
+    public abstract IEnumerator AttackDelay();
 }

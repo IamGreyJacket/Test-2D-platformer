@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyController : EntityController
 {
-    // Start is called before the first frame update
-    void Start()
+    public event Action OnAttackEvent;
+    public event Action OnAltAttackEvent;
+
+    private void Update()
     {
-        
+        ChooseAttack();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ChooseAttack()
     {
-        
+        float random = UnityEngine.Random.Range(-1, 1);
+        if (random >= 0) Attack();
+        else AltAttack();
+    }
+
+    private void Attack()
+    {
+        OnAttackEvent?.Invoke();
+    }
+
+    private void AltAttack()
+    {
+        OnAltAttackEvent?.Invoke();
     }
 }

@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+public class EnemyAnimator : MonoBehaviour
 {
     [SerializeField]
     protected Animator _weaponAnimator;
-
 
     private float _attackSpeed = 1f;
     public float AttackSpeed
@@ -32,4 +31,3 @@ public class PlayerAnimator : MonoBehaviour
         _weaponAnimator.Play("Attack");
     }
 }
-
