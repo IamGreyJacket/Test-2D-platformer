@@ -8,9 +8,9 @@ public class PlayerController : EntityController
 {
     private UserControls _controls;
 
-    public event Action OnAttackEvent;
-    public event Action OnAltAttackEvent;
-    public event Action OnJumpEvent;
+    public event Action AttackEvent;
+    public event Action AltAttackEvent;
+    public event Action JumpEvent;
 
 
     private void Awake()
@@ -24,7 +24,7 @@ public class PlayerController : EntityController
 
     private void OnAltAttack(InputAction.CallbackContext obj)
     {
-        OnAltAttackEvent?.Invoke();
+        AltAttackEvent?.Invoke();
     }
 
     private void Update()
@@ -34,12 +34,12 @@ public class PlayerController : EntityController
 
     private void OnJump(InputAction.CallbackContext obj)
     {
-        OnJumpEvent?.Invoke();
+        JumpEvent?.Invoke();
     }
 
     private void OnAttack(InputAction.CallbackContext obj)
     {
-        OnAttackEvent?.Invoke();
+        AttackEvent?.Invoke();
     }
 
     private void OnEnable()

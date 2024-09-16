@@ -25,16 +25,16 @@ public class Player : Entity, IAttack
 
     private void Awake()
     {
-        _playerController.OnAttackEvent += OnAttack;
-        _playerController.OnAltAttackEvent += OnAltAttack;
-        _playerController.OnJumpEvent += OnJump;
+        _playerController.AttackEvent += OnAttack;
+        _playerController.AltAttackEvent += OnAltAttack;
+        _playerController.JumpEvent += OnJump;
     }
 
     private void OnDestroy()
     {
-        _playerController.OnAttackEvent -= OnAttack;
-        _playerController.OnAltAttackEvent -= OnAltAttack;
-        _playerController.OnJumpEvent -= OnJump;
+        _playerController.AttackEvent -= OnAttack;
+        _playerController.AltAttackEvent -= OnAltAttack;
+        _playerController.JumpEvent -= OnJump;
     }
 
     private void Update()
@@ -65,7 +65,7 @@ public class Player : Entity, IAttack
 
     public override async void TakeDamage(int damage)
     {
-
+        base.TakeDamage(damage);
     }
 
     public IEnumerator OnHealthHung()
