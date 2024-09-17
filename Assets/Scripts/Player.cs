@@ -24,6 +24,10 @@ public class Player : Entity, IAttack
     private float _moveSpeed = 3f;
     [SerializeField, Min(0f)]
     private float _jumpForce = 400f;
+    [SerializeField, Min(0f)]
+    private float _wallSlideSpeed = 1f;
+    private bool _canJump = true;
+    private bool _isWallSlide;
 
     [SerializeField, Min(0f), Tooltip("Attacks per second")]
     private float _attackSpeed = 1f;
@@ -54,6 +58,48 @@ public class Player : Entity, IAttack
     {
         Move();
         CheckAnimSpeed();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        foreach (var contact in collision.contacts)
+        {
+            if (contact.normal.y >= -0.01f)
+            {
+                _canJump = true;
+                if (contact.normal.x > 0.7f || contact.normal.x < -0.7f) //todo
+                {
+                    BeginWallSlide();
+                }
+            }
+        }
+        //если contact.normal.y меньше 0, то давать прыжок нельзя
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        StopWallSlide();
+    }
+
+    private void BeginWallSlide()
+    {
+        _isWallSlide = true;
+        StartCoroutine(WallSlide());
+    }
+
+    private void StopWallSlide()
+    {
+        StopCoroutine(WallSlide());
+        _isWallSlide = false;
+    }
+
+    private IEnumerator WallSlide()
+    {
+        while (_isWallSlide)
+        {
+            _rigidbody.velocity = Vector2.down * _wallSlideSpeed;
+            yield return null;
+        }
     }
 
     private void CheckAnimSpeed()
@@ -137,7 +183,11 @@ public class Player : Entity, IAttack
 
     private void Jump()
     {
+        if (!_canJump) return;
+        StopWallSlide();
+        _rigidbody.velocity = new Vector2(0f, 0f);
         _rigidbody.AddForce(Vector2.up * _jumpForce);
+        _canJump = false;
     }
 
     public void Attack()
