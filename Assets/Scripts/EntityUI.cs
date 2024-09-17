@@ -23,6 +23,7 @@ public class EntityUI : MonoBehaviour
     {
         if(currentHealth < _liveHeartCount)
         {
+            if (currentHealth < 0) currentHealth = 0;
             for(int i = currentHealth; i < _liveHeartCount; i++)
             {
                 _healthUI[i].Heart.SetActive(false);
