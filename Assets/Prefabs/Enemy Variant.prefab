@@ -60,7 +60,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5835300494789093815, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -73,7 +74,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6939608872760927718, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3530777883940319099}
+    - targetCorrespondingSourceObject: {fileID: 7608383781554715239, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6039008126381182100}
   m_SourcePrefab: {fileID: 100100000, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
+--- !u!1 &1434674666775352212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7608383781554715239, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
+  m_PrefabInstance: {fileID: 8826656967784983027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6039008126381182100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434674666775352212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be16ea88440232f4cbd3dcd41add0a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _damagingCollider: {fileID: 6282597403467472279}
+  _owner: {fileID: 7029523162421502354}
 --- !u!1 &1887259205553654805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6939608872760927718, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
@@ -125,5 +149,10 @@ MonoBehaviour:
 --- !u!95 &3278485591903559859 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6269310820286007616, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
+  m_PrefabInstance: {fileID: 8826656967784983027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &6282597403467472279 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3264776244347319396, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
   m_PrefabInstance: {fileID: 8826656967784983027}
   m_PrefabAsset: {fileID: 0}

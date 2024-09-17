@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour
 {
     public event Action<int> HealthChanged;
 
-    [SerializeField]
+    [SerializeField, Min(1)]
     protected int _health = 3;
     public int Health
     {

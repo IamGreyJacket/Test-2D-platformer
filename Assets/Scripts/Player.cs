@@ -8,7 +8,10 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : Entity, IAttack
 {
-    public event Action HealthHangEvent;
+    /// <summary>
+    /// if true - health is hanging, if false - health is NOT hanging
+    /// </summary>
+    public event Action<bool> HealthHangEvent;
 
     [Space, SerializeField]
     private PlayerController _playerController;
@@ -17,17 +20,19 @@ public class Player : Entity, IAttack
     [SerializeField]
     private Rigidbody2D _rigidbody;
 
-    [Space, SerializeField]
+    [Space, SerializeField, Min(0f)]
     private float _moveSpeed = 3f;
-    [SerializeField]
+    [SerializeField, Min(0f)]
     private float _jumpForce = 400f;
 
-    [SerializeField, Tooltip("Attacks per second")]
+    [SerializeField, Min(0f), Tooltip("Attacks per second")]
     private float _attackSpeed = 1f;
-    [SerializeField]
+    [SerializeField, Min(0f)]
     private float _attackDelay = 1f;
     private bool _canAttack = true;
 
+    [SerializeField, Min(0f)]
+    private float _healthHangTime = 3f;
     private bool _healthHanging = false;
     public bool HealthHanging => _healthHanging;
 
@@ -73,15 +78,45 @@ public class Player : Entity, IAttack
 
     public override async void TakeDamage(int damage)
     {
-
-        base.TakeDamage(damage);
+        if (_healthHanging)
+        {
+            _healthHanging = false;
+            await Task.Yield();
+            base.TakeDamage(damage + 1);
+            return;
+        }
+        var hangComplete = await HangHealth();
+        if(hangComplete) base.TakeDamage(damage);
     }
 
-    public async Task<bool> OnHealthHung()
+    public void OnHitSuccess()
     {
+        _healthHanging = false;
+    }
 
+    /// <summary>
+    /// If timer was not broken - returns true, if something interrupted the timer - returns false
+    /// </summary>
+    /// <returns></returns>
+    public async Task<bool> HangHealth()
+    {
+        _healthHanging = true;
+        float time = _healthHangTime;
+        HealthHangEvent?.Invoke(true);
+        while (time > 0)
+        {
+            if (_healthHanging == false)
+            {
+                HealthHangEvent?.Invoke(false);
+                return false;
+            }
+            time -= Time.deltaTime;
+            await Task.Yield();
+        }
         //Таймер подвешенного ХП
-        return false;
+        _healthHanging = false;
+        HealthHangEvent?.Invoke(false);
+        return true;
     }
 
     private void Move()

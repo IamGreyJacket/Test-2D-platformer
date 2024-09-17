@@ -62,6 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6529976577282541337, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
+    - {fileID: 5835300494789093815, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3113544675406171185, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
     m_AddedGameObjects: []
@@ -75,6 +76,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6939608872760927718, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 386285728139359416}
+    - targetCorrespondingSourceObject: {fileID: 7608383781554715239, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2001823402336388969}
   m_SourcePrefab: {fileID: 100100000, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
 --- !u!95 &98734157965442634 stripped
 Animator:
@@ -106,6 +110,7 @@ MonoBehaviour:
   _jumpForce: 400
   _attackSpeed: 1
   _attackDelay: 1
+  _healthHangTime: 3
 --- !u!114 &6156583597144758255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,8 +136,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponAnimator: {fileID: 98734157965442634}
+--- !u!1 &4596414304554208621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7608383781554715239, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
+  m_PrefabInstance: {fileID: 6223929364549154570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2001823402336388969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596414304554208621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db1716cceb3d8e4b8166a7a022aa4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _damagingCollider: {fileID: 8867876263841727342}
+  _owner: {fileID: 3671217289819374299}
 --- !u!50 &7324877674810974466 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3744997797680584200, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
+  m_PrefabInstance: {fileID: 6223929364549154570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &8867876263841727342 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3264776244347319396, guid: ee7058059c18df24fb0cb5fc39a30a9b, type: 3}
   m_PrefabInstance: {fileID: 6223929364549154570}
   m_PrefabAsset: {fileID: 0}

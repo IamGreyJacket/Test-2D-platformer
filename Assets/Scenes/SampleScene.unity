@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6ab20b7ace91f45b8bfc75aa117394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heatlhUI:
+  _healthUI:
   - {fileID: 1153834279}
   - {fileID: 846012508}
   - {fileID: 620477199}
@@ -2209,13 +2209,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694283aeb0714e342b2b90c556c4bae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heatlhUI:
+  _healthUI:
   - {fileID: 3092711045671237232}
   - {fileID: 1474457900}
   - {fileID: 1452210968}
   - {fileID: 591189505}
   - {fileID: 728167242}
   _owner: {fileID: 1715602234}
+  _hangBlinksSpeed: 1
 --- !u!1 &1763626999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,6 +2435,10 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 1715602234}
+    - target: {fileID: 7029523162421502354, guid: a40bd0e827bbb434b9a94fdafadf4cc2, type: 3}
+      propertyPath: _attackDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7474830109504947919, guid: a40bd0e827bbb434b9a94fdafadf4cc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.37

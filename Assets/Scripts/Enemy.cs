@@ -11,9 +11,9 @@ public class Enemy : Entity, IAttack
 
     public Entity Target;
 
-    [SerializeField, Tooltip("Attacks per second")]
+    [SerializeField, Min(0f), Tooltip("Attacks per second")]
     private float _attackSpeed = 1f;
-    [SerializeField]
+    [SerializeField, Min(0f)]
     private float _attackDelay = 1f;
     private bool _canAttack = true;
 
