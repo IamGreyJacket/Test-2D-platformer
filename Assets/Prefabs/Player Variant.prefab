@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ea534d55ee1484d9133a84645b27f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 3
+  _health: 5
   _playerController: {fileID: 6156583597144758255}
   _playerAnimator: {fileID: 386285728139359416}
   _rigidbody: {fileID: 7324877674810974466}

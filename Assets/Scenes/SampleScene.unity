@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!95 &50571452 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 98734157965442634, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
-  m_PrefabInstance: {fileID: 6213158819880553008}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &172649362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7474830109504947919, guid: a40bd0e827bbb434b9a94fdafadf4cc2, type: 3}
@@ -149,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d839a11284a4f74bafb0627063acedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &172649370
+--- !u!114 &172649365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,14 +153,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 172649363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b96be66f69d6024468b497e9fc6b4c30, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a6ab20b7ace91f45b8bfc75aa117394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _owner: {fileID: 172649364}
-  _playerHeatlh:
+  _heatlhUI:
   - {fileID: 1153834279}
   - {fileID: 846012508}
   - {fileID: 620477199}
+  _owner: {fileID: 172649364}
 --- !u!1 &217752439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,7 +2197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ea534d55ee1484d9133a84645b27f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1715602240
+--- !u!114 &1715602235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2211,16 +2206,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 693607874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b96be66f69d6024468b497e9fc6b4c30, type: 3}
+  m_Script: {fileID: 11500000, guid: 694283aeb0714e342b2b90c556c4bae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _owner: {fileID: 1715602234}
-  _playerHeatlh:
+  _heatlhUI:
   - {fileID: 3092711045671237232}
   - {fileID: 1474457900}
   - {fileID: 1452210968}
   - {fileID: 591189505}
   - {fileID: 728167242}
+  _owner: {fileID: 1715602234}
 --- !u!1 &1763626999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2480,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1887259205553654805, guid: a40bd0e827bbb434b9a94fdafadf4cc2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 172649370}
+      addedObject: {fileID: 172649365}
   m_SourcePrefab: {fileID: 100100000, guid: a40bd0e827bbb434b9a94fdafadf4cc2, type: 3}
 --- !u!1001 &3092711045671237231
 PrefabInstance:
@@ -2603,14 +2598,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 582775039}
     m_Modifications:
-    - target: {fileID: 386285728139359416, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
-      propertyPath: _weaponAnimator
-      value: 
-      objectReference: {fileID: 50571452}
-    - target: {fileID: 3671217289819374299, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
-      propertyPath: _health
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3896079082680701676, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2665,7 +2652,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3896079082680701676, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1715602240}
+      addedObject: {fileID: 1715602235}
   m_SourcePrefab: {fileID: 100100000, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

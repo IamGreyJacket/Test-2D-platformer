@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : Entity, IAttack
 {
+    public event Action HealthHangEvent;
+
     [Space, SerializeField]
     private PlayerController _playerController;
     [SerializeField]
@@ -16,12 +20,16 @@ public class Player : Entity, IAttack
     [Space, SerializeField]
     private float _moveSpeed = 3f;
     [SerializeField]
-    private float _jumpForce = 1f;
+    private float _jumpForce = 400f;
 
     [SerializeField, Tooltip("Attacks per second")]
     private float _attackSpeed = 1f;
     [SerializeField]
     private float _attackDelay = 1f;
+    private bool _canAttack = true;
+
+    private bool _healthHanging = false;
+    public bool HealthHanging => _healthHanging;
 
     private void Awake()
     {
@@ -65,13 +73,15 @@ public class Player : Entity, IAttack
 
     public override async void TakeDamage(int damage)
     {
+
         base.TakeDamage(damage);
     }
 
-    public IEnumerator OnHealthHung()
+    public async Task<bool> OnHealthHung()
     {
+
         //Таймер подвешенного ХП
-        yield return null;
+        return false;
     }
 
     private void Move()
@@ -98,17 +108,33 @@ public class Player : Entity, IAttack
     public void Attack()
     {
         //проигрывает анимацию атаки, в анимации проставляем Event-ы, чтобы включать и отключать коллайдер,
-        _playerAnimator.PlayAttack();
+        if (_canAttack)
+        {
+            _playerAnimator.PlayAttack();
+            StartCoroutine(AttackDelay());
+        }
     }
 
     public void AltAttack()
     {
         //проигрывает анимацию атаки, в анимации проставляем Event-ы, чтобы включать и отключать коллайдер,
-        _playerAnimator.PlayAltAttack();
+        if (_canAttack)
+        {
+            _playerAnimator.PlayAltAttack();
+            StartCoroutine(AttackDelay());
+        }
     }
 
     public IEnumerator AttackDelay()
     {
+        float delay = _attackDelay;
+        _canAttack = false;
+        while (delay > 0)
+        {
+            delay -= Time.deltaTime;
+            yield return null;
+        }
+        _canAttack = true;
         yield return null;
     }
 }
