@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2201234413918001508}
   - component: {fileID: 8900357180510068776}
   m_Layer: 0
-  m_Name: Heart
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 8258372314806656836}
   - component: {fileID: 3394384504482915904}
   m_Layer: 0
-  m_Name: HeartOutline
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,5 +200,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9377cd6ed7b63ff479de92a6a8b4218e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heart: {fileID: 422861889490605537}
-  _heartOutline: {fileID: 1969622762938453997}
+  _healthIcon: {fileID: 422861889490605537}
+  _healthIconBackground: {fileID: 1969622762938453997}

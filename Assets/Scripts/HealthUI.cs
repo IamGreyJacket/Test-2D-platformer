@@ -6,9 +6,9 @@ using UnityEngine;
 public class HealthUI : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _heart;
-    public GameObject Heart => _heart;
+    private GameObject _healthIcon;
+    public GameObject HealthIcon => _healthIcon;
     [SerializeField]
-    private GameObject _heartOutline;
-    public GameObject HeartOutline => _heartOutline;
+    private GameObject _healthIconBackground;
+    public GameObject HealthIconBackground => _healthIconBackground;
 }

@@ -49,10 +49,10 @@ public class PlayerUI : EntityUI
         while (_healthHanging)
         {
             heartStatus = !heartStatus;
-            _healthUI[_liveHeartCount - 1].Heart.SetActive(heartStatus);
+            _healthUI[_liveHeartCount - 1].HealthIcon.SetActive(heartStatus);
             yield return new WaitForSeconds(blinkTime / 2);
         }
-        _healthUI[_liveHeartCount - 1].Heart.SetActive(true); //we keep it ON, in case we hit an enemy and did NOT lose our health.
+        _healthUI[_liveHeartCount - 1].HealthIcon.SetActive(true); //we keep it ON, in case we hit an enemy and did NOT lose our health.
         //If we did not hit anyone, Entity.TakeDamage() => OnHealthChanged will turn off needed HP icons anyway
         yield return null;
     }

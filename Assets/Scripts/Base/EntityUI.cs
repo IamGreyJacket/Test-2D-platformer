@@ -27,14 +27,14 @@ public class EntityUI : MonoBehaviour
             if (currentHealth < 0) currentHealth = 0;
             for(int i = currentHealth; i < _liveHeartCount; i++)
             {
-                _healthUI[i].Heart.SetActive(false);
+                _healthUI[i].HealthIcon.SetActive(false);
             }
         }
         else
         {
             for (int i = _liveHeartCount; i < currentHealth; i++)
             {
-                _healthUI[i].Heart.SetActive(true);
+                _healthUI[i].HealthIcon.SetActive(true);
             }
         }
         _liveHeartCount = currentHealth;
