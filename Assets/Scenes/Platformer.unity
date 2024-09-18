@@ -1362,6 +1362,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1273585
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5071012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1474,6 +1486,18 @@ PrefabInstance:
     - target: {fileID: 7526786530595023860, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
       propertyPath: m_Name
       value: Health (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.19339621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.19339621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1593,6 +1617,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1273585
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5071012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1705,6 +1741,18 @@ PrefabInstance:
     - target: {fileID: 7526786530595023860, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
       propertyPath: m_Name
       value: Health (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.19339621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.19339621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2037,6 +2085,18 @@ PrefabInstance:
     - target: {fileID: 7526786530595023860, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
       propertyPath: m_Name
       value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.19339621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.19339621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2474,6 +2534,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1273585
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5071012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2586,6 +2658,18 @@ PrefabInstance:
     - target: {fileID: 7526786530595023860, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
       propertyPath: m_Name
       value: Health (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1273585
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5071012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3577,6 +3661,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health
       objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1273585
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900357180510068776, guid: ccb9a782f5686164da356bf92548f9e0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5071012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3607,15 +3703,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4894668191949701902, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
       propertyPath: m_Color.b
-      value: 0.9339623
+      value: 0.514151
       objectReference: {fileID: 0}
     - target: {fileID: 4894668191949701902, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
       propertyPath: m_Color.g
-      value: 0.9339623
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4894668191949701902, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
       propertyPath: m_Color.r
-      value: 0.9339623
+      value: 0.7240012
       objectReference: {fileID: 0}
     - target: {fileID: 5447857011531192374, guid: 8aa6a1fce2b73f048ad02b4bfffc24c1, type: 3}
       propertyPath: m_LocalPosition.x
