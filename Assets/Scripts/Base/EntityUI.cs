@@ -19,6 +19,7 @@ public class EntityUI : MonoBehaviour
         owner.HealthChanged += OnHealthChanged;
     }
 
+    //turns off or turns on HP icons, depending on if we lost or gained our Health and how much of it
     protected virtual void OnHealthChanged(int currentHealth)
     {
         if(currentHealth < _liveHeartCount)
@@ -38,5 +39,4 @@ public class EntityUI : MonoBehaviour
         }
         _liveHeartCount = currentHealth;
     }
-
 }

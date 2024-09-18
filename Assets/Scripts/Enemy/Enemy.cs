@@ -14,19 +14,19 @@ public class Enemy : Entity, IAttack
     [SerializeField, Min(0f), Tooltip("Attacks per second")]
     private float _attackSpeed = 1f;
     [SerializeField, Min(0f)]
-    private float _attackDelay = 1f;
+    private float _attackDelay = 1f; //seconds
     private bool _canAttack = true;
 
     private void Awake()
     {
-        _enemyController.OnAttackEvent += OnAttack;
-        _enemyController.OnAltAttackEvent += OnAltAttack;
+        _enemyController.AttackEvent += Attack;
+        _enemyController.AltAttackEvent += AltAttack;
     }
 
     private void OnDestroy()
     {
-        _enemyController.OnAttackEvent -= OnAttack;
-        _enemyController.OnAltAttackEvent -= OnAltAttack;
+        _enemyController.AttackEvent -= Attack;
+        _enemyController.AltAttackEvent -= AltAttack;
     }
 
     private void Update()
@@ -53,41 +53,30 @@ public class Enemy : Entity, IAttack
         }
     }
 
+    //synchronizes animation speed with set attack speed;
     private void CheckAnimSpeed()
     {
         if (_attackSpeed != _enemyAnimator.AttackSpeed) _enemyAnimator.AttackSpeed = _attackSpeed;
     }
 
-
-    private void OnAttack()
-    {
-        Attack();
-    }
-
-    private void OnAltAttack()
-    {
-        AltAttack();
-    }
-
+    //Plays the animation of attack. Collider of a weapon is turned on and off with Unity Animation Events
     public void Attack()
     {
         if (_canAttack)
         {
             _enemyAnimator.PlayAttack();
-            StartCoroutine(AttackDelay());
+            StartCoroutine(AttackCooldown());
         }
     }
-
     public void AltAttack()
     {
         if (_canAttack)
         {
             _enemyAnimator.PlayAltAttack();
-            StartCoroutine(AttackDelay());
+            StartCoroutine(AttackCooldown());
         }
     }
-
-    public IEnumerator AttackDelay()
+    public IEnumerator AttackCooldown()
     {
         float delay = _attackDelay;
         _canAttack = false;

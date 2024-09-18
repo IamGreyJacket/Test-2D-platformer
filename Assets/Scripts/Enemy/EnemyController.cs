@@ -5,14 +5,15 @@ using System;
 
 public class EnemyController : EntityController
 {
-    public event Action OnAttackEvent;
-    public event Action OnAltAttackEvent;
+    public event Action AttackEvent;
+    public event Action AltAttackEvent;
 
     private void Update()
     {
         ChooseAttack();
     }
 
+    //since we have 2 of the attacks, i thought it'd be better to randomize it
     private void ChooseAttack()
     {
         float random = UnityEngine.Random.Range(-1, 1);
@@ -22,11 +23,11 @@ public class EnemyController : EntityController
 
     private void Attack()
     {
-        OnAttackEvent?.Invoke();
+        AttackEvent?.Invoke();
     }
 
     private void AltAttack()
     {
-        OnAltAttackEvent?.Invoke();
+        AltAttackEvent?.Invoke();
     }
 }

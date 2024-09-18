@@ -18,12 +18,12 @@ public class Entity : MonoBehaviour
             OnHealthChanged();
         }
     }
-
+    //called by Weapon, but can be called by anyone if neccessary
     public virtual void TakeDamage(int damage)
     {
         Health -= damage;
 #if UNITY_EDITOR
-        Debug.Log($"{gameObject.name} took {damage} damage.");
+        Debug.Log($"{gameObject.name} took {damage} damage. Health = {Health}");
 #endif
         if (Health <= 0) Die();
     }

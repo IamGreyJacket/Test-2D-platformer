@@ -17,12 +17,12 @@ public class PlayerController : EntityController
     {
         _controls = new UserControls();
         //"Подписываемся" на ивенты UserControls
-        _controls.PlayerOnFoot.Attack.performed += OnAttack;
-        _controls.PlayerOnFoot.AltAttack.performed += OnAltAttack;
-        _controls.PlayerOnFoot.Jump.started += OnJump;
+        _controls.PlayerOnFoot.Attack.performed += Attack;
+        _controls.PlayerOnFoot.AltAttack.performed += AltAttack;
+        _controls.PlayerOnFoot.Jump.started += Jump;
     }
 
-    private void OnAltAttack(InputAction.CallbackContext obj)
+    private void AltAttack(InputAction.CallbackContext obj)
     {
         AltAttackEvent?.Invoke();
     }
@@ -32,12 +32,12 @@ public class PlayerController : EntityController
         Movement = _controls.PlayerOnFoot.Movement.ReadValue<float>();
     }
 
-    private void OnJump(InputAction.CallbackContext obj)
+    private void Jump(InputAction.CallbackContext obj)
     {
         JumpEvent?.Invoke();
     }
 
-    private void OnAttack(InputAction.CallbackContext obj)
+    private void Attack(InputAction.CallbackContext obj)
     {
         AttackEvent?.Invoke();
     }
@@ -57,9 +57,9 @@ public class PlayerController : EntityController
     private void OnDestroy()
     {
         //"отписываемся" от ивентов в UserControls
-        _controls.PlayerOnFoot.Attack.performed -= OnAttack;
-        _controls.PlayerOnFoot.AltAttack.performed -= OnAltAttack;
-        _controls.PlayerOnFoot.Jump.started -= OnJump;
+        _controls.PlayerOnFoot.Attack.performed -= Attack;
+        _controls.PlayerOnFoot.AltAttack.performed -= AltAttack;
+        _controls.PlayerOnFoot.Jump.started -= Jump;
         //уничтожаем UserControls
         _controls.Dispose();
     }

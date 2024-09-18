@@ -32,26 +32,26 @@ public class Player : Entity, IAttack
     [SerializeField, Min(0f), Tooltip("Attacks per second")]
     private float _attackSpeed = 1f;
     [SerializeField, Min(0f)]
-    private float _attackDelay = 1f;
+    private float _attackDelay = 1f; //seconds
     private bool _canAttack = true;
 
     [SerializeField, Min(0f)]
-    private float _healthHangTime = 3f;
+    private float _healthHangTime = 3f; //seconds
     private bool _healthHanging = false;
     public bool HealthHanging => _healthHanging;
 
     private void Awake()
     {
-        _playerController.AttackEvent += OnAttack;
-        _playerController.AltAttackEvent += OnAltAttack;
-        _playerController.JumpEvent += OnJump;
+        _playerController.AttackEvent += Attack;
+        _playerController.AltAttackEvent += AltAttack;
+        _playerController.JumpEvent += Jump;
     }
 
     private void OnDestroy()
     {
-        _playerController.AttackEvent -= OnAttack;
-        _playerController.AltAttackEvent -= OnAltAttack;
-        _playerController.JumpEvent -= OnJump;
+        _playerController.AttackEvent -= Attack;
+        _playerController.AltAttackEvent -= AltAttack;
+        _playerController.JumpEvent -= Jump;
     }
 
     private void Update()
@@ -64,36 +64,35 @@ public class Player : Entity, IAttack
     {
         foreach (var contact in collision.contacts)
         {
+            //to check, if we landed and did not hit a roof/ceiling. 
             if (contact.normal.y >= -0.01f)
             {
                 _canJump = true;
+                //checks if the surface is steep enough to begin wall slide;
                 if (contact.normal.x > 0.7f || contact.normal.x < -0.7f) //todo
                 {
                     BeginWallSlide();
                 }
             }
         }
-        //если contact.normal.y меньше 0, то давать прыжок нельзя
     }
-
+    //when we jump off a wall or anything else, we should make sure we don't keep "sliding" (See IEnumerator WallSlide() to understand why)
     private void OnCollisionExit2D(Collision2D collision)
     {
         StopWallSlide();
     }
-
     private void BeginWallSlide()
     {
         _isWallSlide = true;
         StartCoroutine(WallSlide());
     }
-
     private void StopWallSlide()
     {
         StopCoroutine(WallSlide());
         _isWallSlide = false;
     }
-
-    private IEnumerator WallSlide()
+    //we set a constant velocity to our player, to simulate that we're sliding off of a wall or steep surface
+    private IEnumerator WallSlide() 
     {
         while (_isWallSlide)
         {
@@ -102,26 +101,14 @@ public class Player : Entity, IAttack
         }
     }
 
+    //synchronizes animation speed with set attack speed;
     private void CheckAnimSpeed()
     {
         if (_attackSpeed != _playerAnimator.AttackSpeed) _playerAnimator.AttackSpeed = _attackSpeed;
     }
 
-    private void OnAttack()
-    {
-        Attack();
-    }
-
-    private void OnAltAttack()
-    {
-        AltAttack();
-    }
-
-    private void OnJump()
-    {
-        Jump();
-    }
-
+    //Starts hanging health and waits for hanging results. If hang timer is out, then takes damage.
+    //if hit again, while hang timer is still going, then takes (damage + 1)
     public override async void TakeDamage(int damage)
     {
         if (_healthHanging)
@@ -135,6 +122,7 @@ public class Player : Entity, IAttack
         if(hangComplete) base.TakeDamage(damage);
     }
 
+    //To nullify HangHealth. If we hit an enemy, while our health is hanging - we return it and don't take damage we received before
     public void OnHitSuccess()
     {
         _healthHanging = false;
@@ -159,12 +147,12 @@ public class Player : Entity, IAttack
             time -= Time.deltaTime;
             await Task.Yield();
         }
-        //Таймер подвешенного ХП
         _healthHanging = false;
         HealthHangEvent?.Invoke(false);
         return true;
     }
 
+    //moves the player and also turns him into direction he's moving
     private void Move()
     {
         Vector3 moveVector = new Vector3(_moveSpeed, 0, 0) * _playerController.Movement * Time.deltaTime;
@@ -190,27 +178,24 @@ public class Player : Entity, IAttack
         _canJump = false;
     }
 
+    //Plays the animation of attack. Collider of a weapon is turned on and off with Unity Animation Events
     public void Attack()
     {
-        //проигрывает анимацию атаки, в анимации проставляем Event-ы, чтобы включать и отключать коллайдер,
         if (_canAttack)
         {
             _playerAnimator.PlayAttack();
-            StartCoroutine(AttackDelay());
+            StartCoroutine(AttackCooldown());
         }
     }
-
     public void AltAttack()
     {
-        //проигрывает анимацию атаки, в анимации проставляем Event-ы, чтобы включать и отключать коллайдер,
         if (_canAttack)
         {
             _playerAnimator.PlayAltAttack();
-            StartCoroutine(AttackDelay());
+            StartCoroutine(AttackCooldown());
         }
     }
-
-    public IEnumerator AttackDelay()
+    public IEnumerator AttackCooldown()
     {
         float delay = _attackDelay;
         _canAttack = false;

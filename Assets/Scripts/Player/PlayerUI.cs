@@ -21,6 +21,7 @@ public class PlayerUI : EntityUI
         BeforeDestroy();
     }
 
+    //Sets the owner and sets the method to wait for health hang
     protected override void SetUpHealth(Entity owner)
     {
         base.SetUpHealth(owner);
@@ -33,13 +34,14 @@ public class PlayerUI : EntityUI
         _owner.HealthHangEvent -= OnHealthHang;
     }
 
+    //if true - starts health hang in UI, if false - stops health hang in UI
     private void OnHealthHang(bool isHanging)
     {
         _healthHanging = isHanging;
         if (_healthHanging) StartCoroutine(HangHealth());
-        
     }
 
+    //Hanged health start blinking
     private IEnumerator HangHealth()
     {
         float blinkTime = 1 / _hangBlinksSpeed;
@@ -50,7 +52,8 @@ public class PlayerUI : EntityUI
             _healthUI[_liveHeartCount - 1].Heart.SetActive(heartStatus);
             yield return new WaitForSeconds(blinkTime / 2);
         }
-        _healthUI[_liveHeartCount - 1].Heart.SetActive(true);
+        _healthUI[_liveHeartCount - 1].Heart.SetActive(true); //we keep it ON, in case we hit an enemy and did NOT lose our health.
+        //If we did not hit anyone, Entity.TakeDamage() => OnHealthChanged will turn off needed HP icons anyway
         yield return null;
     }
 }

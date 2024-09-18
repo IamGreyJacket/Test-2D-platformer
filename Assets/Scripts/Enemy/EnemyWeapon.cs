@@ -17,7 +17,7 @@ public class EnemyWeapon : Weapon
             {
                 entity.TakeDamage(_damage);
 #if UNITY_EDITOR
-                Debug.Log($"Hit {collision.name} Health = {entity?.Health}");
+                Debug.Log($"{_owner.gameObject.name} hit {collision.name} Health = {entity.Health}");
 #endif
             }
         }

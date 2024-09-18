@@ -19,7 +19,7 @@ public class PlayerWeapon : Weapon
                 else entity.TakeDamage(_damage);
                 OnHitSuccess();
 #if UNITY_EDITOR
-                Debug.Log($"Hit {collision.name} Health = {entity?.Health}");
+                Debug.Log($"{_owner.gameObject.name} hit {collision.name}. Health = {entity?.Health}");
 #endif
             }
         }
