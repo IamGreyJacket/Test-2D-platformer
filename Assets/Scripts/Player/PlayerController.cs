@@ -16,7 +16,6 @@ public class PlayerController : EntityController
     private void Awake()
     {
         _controls = new UserControls();
-        //"Подписываемся" на ивенты UserControls
         _controls.PlayerOnFoot.Attack.performed += Attack;
         _controls.PlayerOnFoot.AltAttack.performed += AltAttack;
         _controls.PlayerOnFoot.Jump.started += Jump;
@@ -44,23 +43,19 @@ public class PlayerController : EntityController
 
     private void OnEnable()
     {
-        //Включаем UserControls
         _controls.Enable();
     }
 
     private void OnDisable()
     {
-        //Выключаем UserControls
         _controls.Disable();
     }
 
     private void OnDestroy()
     {
-        //"отписываемся" от ивентов в UserControls
         _controls.PlayerOnFoot.Attack.performed -= Attack;
         _controls.PlayerOnFoot.AltAttack.performed -= AltAttack;
         _controls.PlayerOnFoot.Jump.started -= Jump;
-        //уничтожаем UserControls
         _controls.Dispose();
     }
 }
