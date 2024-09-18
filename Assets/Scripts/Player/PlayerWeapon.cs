@@ -9,7 +9,6 @@ public class PlayerWeapon : Weapon
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // проверить, можно ли нанести дамаг, если да, то ищем компонент Entity и наносим дамаг
         Entity entity;
         if (collision.gameObject.TryGetComponent<Entity>(out entity))
         {
